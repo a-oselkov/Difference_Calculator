@@ -6,6 +6,7 @@ import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.security.MessageDigest;
@@ -18,15 +19,13 @@ import java.util.concurrent.Callable;
         @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
         String format = "stylish";
         @Parameters(paramLabel = "filepath1", description = "path to first file")
-        private File file1;
+        private String filepath1;
         @Parameters(paramLabel = "filepath2", description = "path to second file")
-        private File file2;
+        private String filepath2;
 
         @Override
-        public String call() {
-            // The business logic of the command goes here...
-            // In this case, code for generation of ASCII art graphics
-            // (omitted for the sake of brevity).
+        public String call() throws IOException {
+            System.out.println(Differ.generate(filepath1, filepath2));
             return "";
         }
 
