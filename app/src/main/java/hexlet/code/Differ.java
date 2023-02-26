@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Differ {
-    public static Map<String, Object> getMap(String filePath) throws IOException {
+    public static Map<String, Object> fileToMap(String filePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
         String content = Files.readString(path);
@@ -20,11 +20,10 @@ public class Differ {
         });
         return data;
     }
-
     public static String generate(String fistFilePath, String secondFilePath) throws IOException {
         String result;
-        Map<String, Object> data1 = getMap(fistFilePath);
-        Map<String, Object> data2 = getMap(secondFilePath);
+        Map<String, Object> data1 = fileToMap(fistFilePath);
+        Map<String, Object> data2 = fileToMap(secondFilePath);
 
         Set<String> keys = new TreeSet<>(data1.keySet());
         keys.addAll(data2.keySet());
@@ -38,8 +37,8 @@ public class Differ {
             } else if (data1.get(key).equals(data2.get(key))) {
                 result += "    " + key + ":" + " " + data1.get(key) + "\n";
             } else {
-                result += "  - " + key + ":" + " " + data1.get(key) + "\n" +
-                        "  + " + key + ":" + " " + data2.get(key) + "\n";
+                result += "  - " + key + ":" + " " + data1.get(key) + "\n"
+                        + "  + " + key + ":" + " " + data2.get(key) + "\n";
             }
         }
         result += "}";

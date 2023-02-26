@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'checkstyle'
 }
 
 group 'org.example'
@@ -29,4 +30,8 @@ application {
 compileJava {
     options.release = 17
     options.compilerArgs += ["-Aproject=${project.group}/${project.name}"]
+}
+
+run {
+    standardInput = System.in
 }
