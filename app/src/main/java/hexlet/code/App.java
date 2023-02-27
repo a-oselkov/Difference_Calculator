@@ -12,8 +12,8 @@ import java.util.concurrent.Callable;
         description = "Compares two configuration files and shows a difference.")
 public class App implements Callable<String> {
 
-    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
-    String format = "stylish";
+    @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "stylish")
+    String format;
     @Parameters(paramLabel = "filepath1", description = "path to first file", defaultValue = "3.yaml")
     private String filepath1;
     @Parameters(paramLabel = "filepath2", description = "path to second file", defaultValue = "4.yaml")
@@ -21,12 +21,11 @@ public class App implements Callable<String> {
 
     @Override
     public String call() throws IOException {
-        System.out.println(Differ.generate(filepath1, filepath2));
+        System.out.println(Differ.generate(filepath1, filepath2, format));
         return "";
     }
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
 
