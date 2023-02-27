@@ -12,8 +12,6 @@ public class Difference {
     public static List<Map<String, Object>> getDifferenceList(Map<String, Object> data1, Map<String, Object> data2) {
         List<Map<String, Object>> differenceList = new ArrayList<>();
 
-        String status;
-
         Set<String> keys = new TreeSet<>(data1.keySet());
         keys.addAll(data2.keySet());
 
