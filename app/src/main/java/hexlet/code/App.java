@@ -14,9 +14,9 @@ public class App implements Callable<String> {
 
     @Option(names = {"-f", "--format"}, description = "output format [default: stylish]")
     String format = "stylish";
-    @Parameters(paramLabel = "filepath1", description = "path to first file", defaultValue = "1.json")
+    @Parameters(paramLabel = "filepath1", description = "path to first file", defaultValue = "3.yaml")
     private String filepath1;
-    @Parameters(paramLabel = "filepath2", description = "path to second file", defaultValue = "2.json")
+    @Parameters(paramLabel = "filepath2", description = "path to second file", defaultValue = "4.yaml")
     private String filepath2;
 
     @Override
