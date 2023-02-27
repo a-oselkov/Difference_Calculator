@@ -9,7 +9,6 @@ public class Differ {
         Map<String, Object> data1 = Parser.fileToMap(fistFilePath);
         Map<String, Object> data2 = Parser.fileToMap(secondFilePath);
 
-
-        return Formatter.chooseStyle(Difference.getDifferenceList(data1, data2), format);
+        return Formatter.chooseFormat(Difference.getDifferenceList(data1, data2), format);
     }
 }

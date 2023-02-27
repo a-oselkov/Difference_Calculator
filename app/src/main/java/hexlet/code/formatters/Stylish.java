@@ -24,7 +24,8 @@ public class Stylish {
                 }
                 default -> {
                     result.append("  -").append(mapToString(map));
-                    result.append("  + ").append(map.get("key")).append(": ").append(map.get("valueNew")).append("\n");
+                    result.append("  + ").append(map.get("key")).append(": ")
+                            .append(map.get("updatedValue")).append("\n");
                 }
             }
         }
