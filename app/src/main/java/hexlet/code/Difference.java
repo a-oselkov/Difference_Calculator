@@ -22,15 +22,15 @@ public class Difference {
             differenceMap.put("key", key);
             differenceMap.put("value", data1.get(key));
             differenceMap.put("valueNew", data2.get(key));
-            differenceMap.put("status", "-+");
+            differenceMap.put("status", "updated");
             if (!data1.containsKey(key)) {
-                status = "+";
+                status = "added";
                 differenceMap = Map.of("key", key, "value", data2.get(key), "status", status);
             } else if (!data2.containsKey(key)) {
-                status = "-";
+                status = "removed";
                 differenceMap = Map.of("key", key, "value", data1.get(key), "status", status);
             } else if (Objects.equals(data1.get(key), data2.get(key))) {
-                status = "=";
+                status = "unchanged";
                 differenceMap = Map.of("key", key, "value", data1.get(key), "status", status);
             }
             differenceList.add(differenceMap);
