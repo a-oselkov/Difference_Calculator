@@ -19,11 +19,6 @@ class DifferTest {
     private final Path jsonPath = Paths.get("src/test/resources/jsonTest.txt").toAbsolutePath().normalize();
 
     @Test
-    void mapToStringTest() {
-
-    }
-
-    @Test
     void generateTest() throws IOException {
         String actual = Differ.generate(jsonFile1, jsonFile2, "abc");
         String expected = Files.readString(stylishPath).trim();
