@@ -16,6 +16,16 @@ Utility Features:
 
 #### When run without parameters, the result of comparing two test json files will be displayed.
 
+
+### Setup
+```sh
+make install
+```
+
+
+#### When launching the application without parameters, the result of comparing two json text files will be shown.
+
+
 #### For reference information, use the <strong>-h</strong> key:
 
 ![help](https://user-images.githubusercontent.com/122821639/221960796-72e1d7e1-5130-40a0-950e-ac68c4a20ea6.png)
