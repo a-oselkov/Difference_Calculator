@@ -14,7 +14,7 @@ public class Formatter {
         return " " + map.get("key") + ": " + map.get("value") + "\n";
     }
 
-    public static String chooseFormat(List<Map<String, Object>> differencesList, String format) throws IOException {
+    public static String makeFormat(List<Map<String, Object>> differencesList, String format) throws IOException {
         switch (format) {
             case "stylish" -> {
                 return Stylish.toStylishFormat(differencesList);
