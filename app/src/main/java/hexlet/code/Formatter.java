@@ -23,7 +23,7 @@ public class Formatter {
                 return Json.toJsonFormat(differencesList);
             }
             default -> System.out.println("Format " + "\"" + format + "\"" + " is not supported." + "\n"
-                    + "default format is \"stylish\":");
+                    + "Default format is \"stylish\":");
         }
         return Stylish.toStylishFormat(differencesList);
     }

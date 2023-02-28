@@ -2,7 +2,6 @@ package hexlet.code;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
@@ -16,7 +15,7 @@ class DifferTest {
     private final String yamlFile1 = "src/test/resources/file1.yaml";
     private final String yamlFile2 = "src/test/resources/file2.yaml";
     private final Path stylishPath = Paths.get("src/test/resources/stylishTest.txt").toAbsolutePath().normalize();
-    private final Path plainPath = Paths.get("plainTest").toAbsolutePath().normalize();
+    private final Path plainPath = Paths.get("src/test/resources/plainTest.txt").toAbsolutePath().normalize();
     private final Path jsonPath = Paths.get("src/test/resources/jsonTest.txt").toAbsolutePath().normalize();
 
     @Test
@@ -30,46 +29,45 @@ class DifferTest {
 
     @Test
     void generateTest() throws IOException {
-        String actual = Differ.generate(jsonFile1, jsonFile2, "abc") + "\n";
-        String expected = Files.readString(stylishPath);
-        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(jsonFile1, jsonFile2, "abc");
+        String expected = Files.readString(stylishPath).trim();
+        assertEquals(expected, actual);
     }
     @Test
     void generateTest1() throws IOException {
-        String actual = Differ.generate(jsonFile1, jsonFile2, "stylish") + "\n";
-        String expected = Files.readString(stylishPath);
-        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(jsonFile1, jsonFile2, "stylish");
+        String expected = Files.readString(stylishPath).trim();
+        assertEquals(expected, actual);
     }
     @Test
     void generateTest2() throws IOException {
-        String actual = Differ.generate(yamlFile1, yamlFile2, "stylish") + "\n";
-        String expected = Files.readString(stylishPath);
-        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(yamlFile1, yamlFile2, "stylish");
+        String expected = Files.readString(stylishPath).trim();
+        assertEquals(expected, actual);
     }
     @Test
     void generateTest3() throws IOException {
-        String actual = Differ.generate(jsonFile1, jsonFile2, "plain") + "\n";
-        String expected = Files.readString(stylishPath);
-        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(jsonFile1, jsonFile2, "plain");
+        String expected = Files.readString(plainPath).trim();
+        assertEquals(expected, actual);
     }
     @Test
     void generateTest4() throws IOException {
-        String actual = Differ.generate(yamlFile1, yamlFile2, "plain") + "\n";
-        String expected = Files.readString(stylishPath);
-        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(yamlFile1, yamlFile2, "plain");
+        String expected = Files.readString(plainPath).trim();
+        assertEquals(expected, actual);
     }
     @Test
     void generateTest5() throws IOException {
-        String actual = Differ.generate(jsonFile1, jsonFile2, "json") + "\n";
-        String expected = Files.readString(jsonPath);
+        String actual = Differ.generate(jsonFile1, jsonFile2, "json");
+        String expected = Files.readString(jsonPath).trim();
         assertEquals(expected, actual);
-        //assertThat(actual).isEqualTo(expected);
     }
     @Test
     void generateTest6() throws IOException {
-        String actual = Differ.generate(yamlFile1, yamlFile2, "json") + "\n";
-        String expected = Files.readString(jsonPath);
-        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(yamlFile1, yamlFile2, "json");
+        String expected = Files.readString(jsonPath).trim();
+        assertEquals(expected, actual);
     }
 }
 

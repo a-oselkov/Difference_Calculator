@@ -15,8 +15,8 @@ public class Parser {
         String fileType = filePath.substring(filePath.length() - 4);
         ObjectMapper objectMapper = fileType.equals("json") ? new ObjectMapper() : new ObjectMapper(new YAMLFactory());
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
-        String content = Files.readString(path);
-        Map<String, Object> data = objectMapper.readValue(content, new TypeReference<Map<String, Object>>() { });
+        String dataFile = Files.readString(path);
+        Map<String, Object> data = objectMapper.readValue(dataFile, new TypeReference<Map<String, Object>>() { });
         return data;
     }
 }
