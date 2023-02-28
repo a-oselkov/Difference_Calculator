@@ -3,10 +3,21 @@ package hexlet.code;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 class DifferTest {
+    private final String jsonFile1 = "src/test/resources/file1.json";
+    private final String jsonFile2 = "src/test/resources/file2.json";
+    private final String yamlFile1 = "src/test/resources/file1.yaml";
+    private final String yamlFile2 = "src/test/resources/file2.yaml";
+    private final Path stylishPath = Paths.get("src/test/resources/stylishTest.txt").toAbsolutePath().normalize();
+    private final Path plainPath = Paths.get("plainTest").toAbsolutePath().normalize();
+    private final Path jsonPath = Paths.get("src/test/resources/jsonTest.txt").toAbsolutePath().normalize();
 
 //    @Test
 //    void fileToMapTest() throws IOException {
@@ -18,63 +29,41 @@ class DifferTest {
 //    }
 
     @Test
-    void generateJsonTest() throws IOException {
-        String actual = Differ.generate("5.json", "6.json", "stylish");
-        String expecting = "{\n"
-                + "    chars1: [a, b, c]\n"
-                + "  - chars2: [d, e, f]\n"
-                + "  + chars2: false\n"
-                + "  - checked: false\n"
-                + "  + checked: true\n"
-                + "  - default: null\n"
-                + "  + default: [value1, value2]\n"
-                + "  - id: 45\n"
-                + "  + id: null\n"
-                + "  - key1: value1\n"
-                + "  + key2: value2\n"
-                + "    numbers1: [1, 2, 3, 4]\n"
-                + "  - numbers2: [2, 3, 4, 5]\n"
-                + "  + numbers2: [22, 33, 44, 55]\n"
-                + "  - numbers3: [3, 4, 5]\n"
-                + "  + numbers4: [4, 5, 6]\n"
-                + "  + obj1: {nestedKey=value, isNested=true}\n"
-                + "  - setting1: Some value\n"
-                + "  + setting1: Another value\n"
-                + "  - setting2: 200\n"
-                + "  + setting2: 300\n"
-                + "  - setting3: true\n"
-                + "  + setting3: none\n"
-                + "}";
-        assertThat(actual).isEqualTo(expecting);
+    void generateStylishTest1() throws IOException {
+        String actual = Differ.generate(jsonFile1, jsonFile2, "stylish") + "\n";
+        String expected = Files.readString(stylishPath);
+        assertThat(actual).isEqualTo(expected);
     }
     @Test
-    void generateYamlTest() throws IOException {
-        String actual = Differ.generate("3.yaml", "4.yaml", "stylish");
-        String expecting = "{\n"
-                + "    chars1: [a, b, c]\n"
-                + "  - chars2: [d, e, f]\n"
-                + "  + chars2: false\n"
-                + "  - checked: false\n"
-                + "  + checked: true\n"
-                + "  - default: null\n"
-                + "  + default: [value1, value2]\n"
-                + "  - id: 45\n"
-                + "  + id: null\n"
-                + "  - key1: value1\n"
-                + "  + key2: value2\n"
-                + "    numbers1: [1, 2, 3, 4]\n"
-                + "  - numbers2: [2, 3, 4, 5]\n"
-                + "  + numbers2: [22, 33, 44, 55]\n"
-                + "  - numbers3: [3, 4, 5]\n"
-                + "  + numbers4: [4, 5, 6]\n"
-                + "  + obj1: {nestedKey=value, isNested=true}\n"
-                + "  - setting1: Some value\n"
-                + "  + setting1: Another value\n"
-                + "  - setting2: 200\n"
-                + "  + setting2: 300\n"
-                + "  - setting3: true\n"
-                + "  + setting3: none\n"
-                + "}";
-        assertThat(actual).isEqualTo(expecting);
+    void generateStylishTest2() throws IOException {
+        String actual = Differ.generate(yamlFile1, yamlFile2, "stylish") + "\n";
+        String expected = Files.readString(stylishPath);
+        assertThat(actual).isEqualTo(expected);
+    }
+//    @Test
+//    void generateStylishTest3() throws IOException {
+//        String actual = Differ.generate(jsonFile1, jsonFile2, "plain") + "\n";
+//        String expected = Files.readString(plainPath);
+//        assertThat(actual).isEqualTo(expected);
+//    }
+//    @Test
+//    void generateStylishTest4() throws IOException {
+//        String actual = Differ.generate(yamlFile1, yamlFile2, "plain") + "\n";
+//        String expected = Files.readString(plainPath);
+//        assertThat(actual).isEqualTo(expected);
+//    }
+    @Test
+    void generateStylishTest5() throws IOException {
+        String actual = Differ.generate(jsonFile1, jsonFile2, "json") + "\n";
+        String expected = Files.readString(jsonPath);
+        assertEquals(expected, actual);
+        //assertThat(actual).isEqualTo(expected);
+    }
+    @Test
+    void generateStylishTest6() throws IOException {
+        String actual = Differ.generate(yamlFile1, yamlFile2, "json") + "\n";
+        String expected = Files.readString(jsonPath);
+        assertThat(actual).isEqualTo(expected);
     }
 }
+

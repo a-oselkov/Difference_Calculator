@@ -14,9 +14,11 @@ public class App implements Callable<String> {
 
     @Option(names = {"-f", "--format"}, description = "output format [default: stylish]", defaultValue = "stylish")
     String format;
-    @Parameters(paramLabel = "filepath1", description = "path to first file", defaultValue = "3.yaml")
+    @Parameters(paramLabel = "filepath1", description = "path to first file",
+            defaultValue = "src/test/resources/file1.json")
     private String filepath1;
-    @Parameters(paramLabel = "filepath2", description = "path to second file", defaultValue = "4.yaml")
+    @Parameters(paramLabel = "filepath2", description = "path to second file",
+            defaultValue = "src/test/resources/file2.json")
     private String filepath2;
 
     @Override

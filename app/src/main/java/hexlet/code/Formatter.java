@@ -13,18 +13,18 @@ public class Formatter {
         return " " + map.get("key") + ": " + map.get("value") + "\n";
     }
 
-    public static String chooseFormat(List<Map<String, Object>> differenceList, String format) throws IOException {
+    public static String chooseFormat(List<Map<String, Object>> differencesList, String format) throws IOException {
         switch (format) {
             case "stylish":
-                return Stylish.toStylishFormat(differenceList);
+                return Stylish.toStylishFormat(differencesList);
 //            case "plain":
 //                return Plain.toPlainFormat(differenceList);
             case "json":
-                return Json.toJsonFormat(differenceList);
+                return Json.toJsonFormat(differencesList);
             default:
                 System.out.println("Format" + format + "is not correct!");
         }
-        return Stylish.toStylishFormat(differenceList);
+        return Stylish.toStylishFormat(differencesList);
     }
 }
 
