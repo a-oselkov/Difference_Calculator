@@ -28,7 +28,8 @@ make install
 
 #### For reference information, use the <strong>-h</strong> key:
 
-![help](https://user-images.githubusercontent.com/122821639/221960796-72e1d7e1-5130-40a0-950e-ac68c4a20ea6.png)
+![help](https://user-images.githubusercontent.com/122821639/221994968-9a61180c-91e7-4efb-afce-6d6f05d384b8.png)
+
 
 #### Specify the path to two json or yaml files and select the format (stylish by default) for displaying information about the differences: 
 
