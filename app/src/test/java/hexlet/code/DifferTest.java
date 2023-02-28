@@ -19,12 +19,8 @@ class DifferTest {
     private final Path jsonPath = Paths.get("src/test/resources/jsonTest.txt").toAbsolutePath().normalize();
 
     @Test
-    void fileToMapTest() throws IOException {
-//        Map<String, Object> actual = Parser.jsonToMap("2.json");
-//        Map<String, Object> expecting = new HashMap<>(
-//                Map.of("timeout", 20, "verbose", true, "host", "hexlet.io")
-//        );
-//        assertThat(actual).isEqualTo(expecting);
+    void mapToStringTest() {
+
     }
 
     @Test
