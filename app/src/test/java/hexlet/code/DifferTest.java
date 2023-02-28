@@ -20,7 +20,7 @@ class DifferTest {
 
     @Test
     void generateTest() throws IOException {
-        String actual = Differ.generate(jsonFile1, jsonFile2, "abc");
+        String actual = Differ.generate(jsonFile1, jsonFile2);
         String expected = Files.readString(stylishPath).trim();
         assertEquals(expected, actual);
     }

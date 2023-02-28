@@ -16,6 +16,9 @@ public class Formatter {
 
     public static String chooseFormat(List<Map<String, Object>> differencesList, String format) throws IOException {
         switch (format) {
+            case "stylish" -> {
+                return Stylish.toStylishFormat(differencesList);
+            }
             case "plain" -> {
                 return Plain.toPlainFormat(differencesList);
             }

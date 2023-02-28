@@ -11,7 +11,7 @@ public class Differ {
 
         return Formatter.chooseFormat(Differences.getDifferencesList(data1, data2), format);
     }
-    public static String generate(String fistFilePath, String secondFilePath) throws Exception {
+    public static String generate(String fistFilePath, String secondFilePath) throws IOException {
         return generate(fistFilePath, secondFilePath, "stylish");
     }
 }
