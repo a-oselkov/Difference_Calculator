@@ -42,15 +42,15 @@ class DifferTest {
     }
     @Test
     void generateTest3() throws IOException {
-//        String actual = Differ.generate(jsonFile1, jsonFile2, "plain") + "\n";
-//        String expected = Files.readString(plainPath);
-//        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(jsonFile1, jsonFile2, "plain") + "\n";
+        String expected = Files.readString(stylishPath);
+        assertThat(actual).isEqualTo(expected);
     }
     @Test
     void generateTest4() throws IOException {
-//        String actual = Differ.generate(yamlFile1, yamlFile2, "plain") + "\n";
-//        String expected = Files.readString(plainPath);
-//        assertThat(actual).isEqualTo(expected);
+        String actual = Differ.generate(yamlFile1, yamlFile2, "plain") + "\n";
+        String expected = Files.readString(stylishPath);
+        assertThat(actual).isEqualTo(expected);
     }
     @Test
     void generateTest5() throws IOException {

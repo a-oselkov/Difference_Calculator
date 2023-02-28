@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.formatters.Json;
 import hexlet.code.formatters.Stylish;
+import hexlet.code.formatters.Plain;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,14 +16,14 @@ public class Formatter {
 
     public static String chooseFormat(List<Map<String, Object>> differencesList, String format) throws IOException {
         switch (format) {
-            case "stylish":
-                return Stylish.toStylishFormat(differencesList);
-//            case "plain":
-//                return Plain.toPlainFormat(differenceList);
-            case "json":
+            case "plain" -> {
+                return Plain.toPlainFormat(differencesList);
+            }
+            case "json" -> {
                 return Json.toJsonFormat(differencesList);
-            default:
-                System.out.println("Format" + format + "is not correct!");
+            }
+            default -> System.out.println("Format " + "\"" + format + "\"" + " is not supported." + "\n"
+                    + "default format is \"stylish\":");
         }
         return Stylish.toStylishFormat(differencesList);
     }
