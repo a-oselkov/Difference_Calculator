@@ -29,6 +29,12 @@ class DifferTest {
     }
 
     @Test
+    void generateTest() throws IOException {
+        String actual = Differ.generate(jsonFile1, jsonFile2, "abc") + "\n";
+        String expected = Files.readString(stylishPath);
+        assertThat(actual).isEqualTo(expected);
+    }
+    @Test
     void generateTest1() throws IOException {
         String actual = Differ.generate(jsonFile1, jsonFile2, "stylish") + "\n";
         String expected = Files.readString(stylishPath);
