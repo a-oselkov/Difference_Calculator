@@ -13,7 +13,7 @@ import java.util.Map;
 public class Parser {
 
     public static Map<String, Object> fileToMap(String filePath) throws IOException {
-        final int fileFormatLength = 4;
+        final int fileFormatLength = 5;
         String fileType = filePath.substring(filePath.length() - fileFormatLength);
         ObjectMapper objectMapper = fileType.equals("json") ? new ObjectMapper() : new ObjectMapper(new YAMLFactory());
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
