@@ -13,20 +13,20 @@ import java.nio.file.Paths;
 class DifferTest {
     private final String jsonFile1 = "src/test/resources/file1.json";
     private final String jsonFile2 = "src/test/resources/file2.json";
-    private static final Path stylishPath = Paths.get("src/test/resources/stylish-test.txt")
+    private static final Path STYLISPATH = Paths.get("src/test/resources/stylish-test.txt")
             .toAbsolutePath().normalize();
-    private static final Path plainPath = Paths.get("src/test/resources/plain-test.txt")
+    private static final Path PLAINPATH = Paths.get("src/test/resources/plain-test.txt")
             .toAbsolutePath().normalize();
-    private static final Path jsonPath = Paths.get("src/test/resources/json-test.txt")
+    private static final Path JSONPATH = Paths.get("src/test/resources/json-test.txt")
             .toAbsolutePath().normalize();
     private static String stylish;
     private static String plain;
     private static String json;
     @BeforeAll
-    static void readResult () throws IOException {
-        stylish = Files.readString(stylishPath).trim();
-        plain = Files.readString(plainPath).trim();
-        json = Files.readString(jsonPath).trim();
+    static void readResult() throws IOException {
+        stylish = Files.readString(STYLISPATH).trim();
+        plain = Files.readString(PLAINPATH).trim();
+        json = Files.readString(JSONPATH).trim();
     }
     @Test
     void generateTest1() throws IOException {
