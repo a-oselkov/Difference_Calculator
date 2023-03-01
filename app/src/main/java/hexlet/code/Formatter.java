@@ -10,20 +10,14 @@ import java.util.Map;
 
 public class Formatter {
     public static String makeFormat(List<Map<String, Object>> differencesList, String format) throws IOException {
-        switch (format) {
-            case "stylish" -> {
-                return Stylish.toStylishFormat(differencesList);
-            }
-            case "plain" -> {
-                return Plain.toPlainFormat(differencesList);
-            }
-            case "json" -> {
-                return Json.toJsonFormat(differencesList);
-            }
-            default -> System.out.println("Format " + "\"" + format + "\"" + " is not supported." + "\n"
-                    + "Default format is \"stylish\":");
-        }
-        return Stylish.toStylishFormat(differencesList);
+        return switch (format) {
+            case "stylish" -> Stylish.toStylishFormat(differencesList);
+            case "plain" -> Plain.toPlainFormat(differencesList);
+            case "json" -> Json.toJsonFormat(differencesList);
+            default -> "Format " + "\"" + format + "\"" + " is not supported." + "\n"
+                    + "Default format is \"stylish\":" + "\n"
+                    + Stylish.toStylishFormat(differencesList);
+        };
     }
 }
 
