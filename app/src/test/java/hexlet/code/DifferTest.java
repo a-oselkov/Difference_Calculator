@@ -13,11 +13,11 @@ import java.nio.file.Paths;
 class DifferTest {
     private final String jsonFile1 = "src/test/resources/file1.json";
     private final String jsonFile2 = "src/test/resources/file2.json";
-    private static final Path stylishPath = Paths.get("src/test/resources/stylishTest.txt")
+    private static final Path stylishPath = Paths.get("src/test/resources/stylish-test.txt")
             .toAbsolutePath().normalize();
-    private static final Path plainPath = Paths.get("src/test/resources/plainTest.txt")
+    private static final Path plainPath = Paths.get("src/test/resources/plain-test.txt")
             .toAbsolutePath().normalize();
-    private static final Path jsonPath = Paths.get("src/test/resources/jsonTest.txt")
+    private static final Path jsonPath = Paths.get("src/test/resources/json-test.txt")
             .toAbsolutePath().normalize();
     private static String stylish;
     private static String plain;
