@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 class App implements Callable<Integer> {
 
     @Option(names = {"-f", "--format"},
-            description = "output format: stylish | plain | json\n[default: stylish]", defaultValue = "stylish")
+            description = "output format: stylish | plain | json\n[default: stylish]", defaultValue = "json")
     private String format;
     @Parameters(paramLabel = "filepath1", description = "path to first file",
             defaultValue = "src/main/resources/file1.json")

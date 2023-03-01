@@ -18,22 +18,20 @@ public class Differences {
         for (String key : keys) {
             Map<String, Object> differencesMap = new LinkedHashMap<>();
             differencesMap.put("key", key);
-            differencesMap.put("value", data1.get(key));
-            differencesMap.put("updatedValue", data2.get(key));
-            differencesMap.put("status", "updated");
 
             if (!data1.containsKey(key)) {
-                differencesMap.put("key", key);
                 differencesMap.put("value", data2.get(key));
                 differencesMap.put("status", "added");
             } else if (!data2.containsKey(key)) {
-                differencesMap.put("key", key);
                 differencesMap.put("value", data1.get(key));
                 differencesMap.put("status", "removed");
             } else if (Objects.equals(data1.get(key), data2.get(key))) {
-                differencesMap.put("key", key);
                 differencesMap.put("value", data1.get(key));
                 differencesMap.put("status", "unchanged");
+            } else {
+                differencesMap.put("value", data1.get(key));
+                differencesMap.put("updatedValue", data2.get(key));
+                differencesMap.put("status", "updated");
             }
             differencesList.add(differencesMap);
         }

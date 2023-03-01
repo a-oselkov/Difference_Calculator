@@ -9,11 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Formatter {
-
-    public static String mapToString(Map<String, Object> map) {
-        return " " + map.get("key") + ": " + map.get("value") + "\n";
-    }
-
     public static String makeFormat(List<Map<String, Object>> differencesList, String format) throws IOException {
         switch (format) {
             case "stylish" -> {

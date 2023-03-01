@@ -1,7 +1,6 @@
 [ {
   "key" : "chars1",
   "value" : [ "a", "b", "c" ],
-  "updatedValue" : [ "a", "b", "c" ],
   "status" : "unchanged"
 }, {
   "key" : "chars2",
@@ -26,17 +25,14 @@
 }, {
   "key" : "key1",
   "value" : "value1",
-  "updatedValue" : null,
   "status" : "removed"
 }, {
   "key" : "key2",
   "value" : "value2",
-  "updatedValue" : "value2",
   "status" : "added"
 }, {
   "key" : "numbers1",
   "value" : [ 1, 2, 3, 4 ],
-  "updatedValue" : [ 1, 2, 3, 4 ],
   "status" : "unchanged"
 }, {
   "key" : "numbers2",
@@ -46,20 +42,14 @@
 }, {
   "key" : "numbers3",
   "value" : [ 3, 4, 5 ],
-  "updatedValue" : null,
   "status" : "removed"
 }, {
   "key" : "numbers4",
   "value" : [ 4, 5, 6 ],
-  "updatedValue" : [ 4, 5, 6 ],
   "status" : "added"
 }, {
   "key" : "obj1",
   "value" : {
-    "nestedKey" : "value",
-    "isNested" : true
-  },
-  "updatedValue" : {
     "nestedKey" : "value",
     "isNested" : true
   },
