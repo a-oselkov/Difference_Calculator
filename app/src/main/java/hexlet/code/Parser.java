@@ -13,14 +13,16 @@ public class Parser {
         return mapper.readValue(dataFromFile, new TypeReference<Map<String, Object>>() { });
     }
 
-    private static ObjectMapper chooseParser(String filePath) {
-        return switch (getFileType(filePath)) {
+    private static ObjectMapper chooseParser(String filePath) throws IOException {
+        String extension = getFileExtension(filePath);
+        return switch (extension) {
+            case "json" -> new ObjectMapper();
             case "yml", "yaml" -> new YAMLMapper();
-            default -> new ObjectMapper();
+            default -> throw new IOException("File extension " + "'" + extension + "'"  + " not available");
         };
     }
 
-    private static String getFileType(String filePath) {
+    private static String getFileExtension(String filePath) {
         String[] split = filePath.split("\\.");
         return split[split.length - 1];
     }
