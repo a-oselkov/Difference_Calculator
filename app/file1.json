@@ -1,0 +1,8 @@
+{
+  "setting1": "Some value",
+  "setting2": 200,
+  "key1": true,
+  "numbers1": [1, 2, 3, 4],
+  "numbers3": [3, 4, 5],
+  "chars1": ["a", "b", "c"]
+}

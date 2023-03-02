@@ -28,19 +28,21 @@ make install
 
 #### For reference information, use the <strong>-h</strong> key:
 
-![help](https://user-images.githubusercontent.com/122821639/221994968-9a61180c-91e7-4efb-afce-6d6f05d384b8.png)
+![help](https://user-images.githubusercontent.com/122821639/222505600-e9c0f448-57f1-4b93-b733-47b0514b9a7b.png)
 
 
 #### Specify the path to two json or yaml files and select the format (stylish by default) for displaying information about the differences: 
 
 #### Output example in stylish format:
 
-![stylish](https://user-images.githubusercontent.com/122821639/221957686-98f003c1-ac0b-4488-87eb-b58c6ab2af99.png)
+![stylish](https://user-images.githubusercontent.com/122821639/222505712-bd6395b9-2640-411d-8407-bb004d1c3a10.png)
+
 
 #### Output example in plain format:
 
-![plain](https://user-images.githubusercontent.com/122821639/221958077-ac030872-9353-404d-a7ec-ecf9b14f88d1.png)
+![plain](https://user-images.githubusercontent.com/122821639/222505835-200e74dd-9bea-4c0b-ac0f-f404e64bd872.png)
+
 
 #### Output example in json format:
 
-![json](https://user-images.githubusercontent.com/122821639/221958367-8899c052-5832-4856-9b67-4321960320df.png)
+![json](https://user-images.githubusercontent.com/122821639/222505949-f612a42b-5c7d-4f6a-afc7-7ed2206f6bfe.png)
