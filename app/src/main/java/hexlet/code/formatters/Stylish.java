@@ -4,13 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Stylish {
-    public static String mapToString(Map<String, Object> map) {
+    private static String mapToString(Map<String, Object> map) {
         return map.get("key") + ": " + map.get("value") + "\n";
     }
 
     public static String toStylishFormat(List<Map<String, Object>> differenceList) {
         StringBuilder result = new StringBuilder("{\n");
-
         for (Map<String, Object> map : differenceList) {
             switch (map.get("status").toString()) {
                 case "added" -> {

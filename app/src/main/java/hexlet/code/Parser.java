@@ -5,21 +5,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.Map;
 
 public class Parser {
-
-    public static Map<String, Object> dataToMap(String dataFromFile, Path filePath) throws IOException {
-        ObjectMapper mapper = getFileType(filePath);
+    public static Map<String, Object> parse(String dataFromFile, String filePath) throws IOException {
+        ObjectMapper mapper = chooseParser(filePath);
         return mapper.readValue(dataFromFile, new TypeReference<Map<String, Object>>() { });
     }
-
-    private static ObjectMapper getFileType(Path filePath) {
-        if (filePath.endsWith("json")) {
-            return new ObjectMapper();
-        } else {
+    private static ObjectMapper chooseParser(String filePath) {
+        if (getFileType(filePath).equals("yaml")) {
             return new YAMLMapper();
         }
+        return new ObjectMapper();
+    }
+    private static String getFileType(String filePath) {
+        String[] split = filePath.split("\\.");
+        return split[split.length - 1];
     }
 }

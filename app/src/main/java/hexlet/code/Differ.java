@@ -10,15 +10,12 @@ import java.util.Map;
 public class Differ {
     public static String generate(String filePath1, String filePath2, String format) throws IOException {
 
-        Path path1 = Paths.get(filePath1).toAbsolutePath().normalize();
-        String dataFromFile1 = Files.readString(path1);
+        String dataFromFile1 = getData(filePath1);
 
-        Path path2 = Paths.get(filePath2).toAbsolutePath().normalize();
-        String dataFromFile2 = Files.readString(path2);
+        String dataFromFile2 = getData(filePath2);
 
-
-        Map<String, Object> data1 = Parser.dataToMap(dataFromFile1, path1);
-        Map<String, Object> data2 = Parser.dataToMap(dataFromFile2, path2);
+        Map<String, Object> data1 = Parser.parse(dataFromFile1, filePath1);
+        Map<String, Object> data2 = Parser.parse(dataFromFile2, filePath2);
 
         List<Map<String, Object>> differences = Differences.getDifferencesList(data1, data2);
 
@@ -27,4 +24,9 @@ public class Differ {
     public static String generate(String fistFilePath, String secondFilePath) throws IOException {
         return generate(fistFilePath, secondFilePath, "stylish");
     }
+    public static String getData(String filePath) throws IOException {
+        Path path = Paths.get(filePath).toAbsolutePath().normalize();
+        return Files.readString(path);
+    }
 }
+
