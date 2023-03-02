@@ -12,12 +12,14 @@ public class Parser {
         ObjectMapper mapper = chooseParser(filePath);
         return mapper.readValue(dataFromFile, new TypeReference<Map<String, Object>>() { });
     }
+
     private static ObjectMapper chooseParser(String filePath) {
-        if (getFileType(filePath).equals("json")) {
-            return new ObjectMapper();
-        }
-        return new YAMLMapper();
+        return switch (getFileType(filePath)) {
+            case "yml", "yaml" -> new YAMLMapper();
+            default -> new ObjectMapper();
+        };
     }
+
     private static String getFileType(String filePath) {
         String[] split = filePath.split("\\.");
         return split[split.length - 1];
