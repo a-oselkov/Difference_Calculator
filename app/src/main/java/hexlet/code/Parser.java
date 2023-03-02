@@ -13,10 +13,10 @@ public class Parser {
         return mapper.readValue(dataFromFile, new TypeReference<Map<String, Object>>() { });
     }
     private static ObjectMapper chooseParser(String filePath) {
-        if (getFileType(filePath).equals("yaml")) {
-            return new YAMLMapper();
+        if (getFileType(filePath).equals("json")) {
+            return new ObjectMapper();
         }
-        return new ObjectMapper();
+        return new YAMLMapper();
     }
     private static String getFileType(String filePath) {
         String[] split = filePath.split("\\.");
