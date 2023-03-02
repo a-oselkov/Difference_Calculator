@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 class DifferTest {
     private final String jsonFile1 = "src/test/resources/file1.json";
     private final String jsonFile2 = "src/test/resources/file2.json";
-    private final String yamlFile1 = "src/test/resources/file1.yaml";
+    private final String yamlFile1 = "src/test/resources/file1.yml";
     private final String yamlFile2 = "src/test/resources/file2.yaml";
     private static final Path STYLISPATH = Paths.get("src/test/resources/stylish-test.txt");
     private static final Path PLAINPATH = Paths.get("src/test/resources/plain-test.txt");
