@@ -8,22 +8,16 @@ import java.io.IOException;
 import java.util.Map;
 
 public class Parser {
-    public static Map<String, Object> parse(String dataFromFile, String filePath) throws IOException {
-        ObjectMapper mapper = chooseParser(filePath);
+    public static Map<String, Object> parse(String dataFromFile, String extension) throws IOException {
+        ObjectMapper mapper = chooseParser(extension);
         return mapper.readValue(dataFromFile, new TypeReference<Map<String, Object>>() { });
     }
 
-    private static ObjectMapper chooseParser(String filePath) throws IOException {
-        String extension = getFileExtension(filePath);
+    private static ObjectMapper chooseParser(String extension) throws IOException {
         return switch (extension) {
             case "json" -> new ObjectMapper();
             case "yml", "yaml" -> new YAMLMapper();
             default -> throw new IOException("File extension " + "'" + extension + "'"  + " not available");
         };
-    }
-
-    private static String getFileExtension(String filePath) {
-        String[] split = filePath.split("\\.");
-        return split[split.length - 1];
     }
 }

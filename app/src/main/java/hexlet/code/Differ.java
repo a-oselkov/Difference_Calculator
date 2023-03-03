@@ -9,24 +9,22 @@ import java.util.Map;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2, String format) throws IOException {
-
-        String dataFromFile1 = getData(filePath1);
-
-        String dataFromFile2 = getData(filePath2);
-
-        Map<String, Object> data1 = Parser.parse(dataFromFile1, filePath1);
-        Map<String, Object> data2 = Parser.parse(dataFromFile2, filePath2);
-
-        List<Map<String, Object>> differences = Differences.getDifferencesList(data1, data2);
-
+        Map<String, Object> parsingDataFile1 = getData(filePath1);
+        Map<String, Object> parsingDataFile2 = getData(filePath2);
+        List<Map<String, Object>> differences = Differences.getDifferencesList(parsingDataFile1, parsingDataFile2);
         return Formatter.makeFormat(differences, format);
     }
     public static String generate(String fistFilePath, String secondFilePath) throws IOException {
         return generate(fistFilePath, secondFilePath, "stylish");
     }
-    public static String getData(String filePath) throws IOException {
+    public static Map<String, Object> getData(String filePath) throws IOException {
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
-        return Files.readString(path);
+        String dataFile = Files.readString(path);
+        String extension = getFileExtension(filePath);
+        return Parser.parse(dataFile, extension);
+    }
+    public static String getFileExtension(String filePath) {
+        String[] split = filePath.split("\\.");
+        return split[split.length - 1];
     }
 }
-
