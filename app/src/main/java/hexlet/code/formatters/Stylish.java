@@ -12,15 +12,9 @@ public class Stylish {
         StringBuilder result = new StringBuilder("{\n");
         for (Map<String, Object> map : differenceList) {
             switch (map.get("status").toString()) {
-                case "added" -> {
-                    result.append("  + ").append(mapToString(map));
-                }
-                case "removed" -> {
-                    result.append("  - ").append(mapToString(map));
-                }
-                case "unchanged" -> {
-                    result.append("    ").append(mapToString(map));
-                }
+                case "added" -> result.append("  + ").append(mapToString(map));
+                case "removed" -> result.append("  - ").append(mapToString(map));
+                case "unchanged" -> result.append("    ").append(mapToString(map));
                 default -> {
                     result.append("  - ").append(mapToString(map));
                     result.append("  + ").append(map.get("key")).append(": ")

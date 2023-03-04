@@ -17,7 +17,7 @@ public class Parser {
         return switch (extension) {
             case "json" -> new ObjectMapper();
             case "yml", "yaml" -> new YAMLMapper();
-            default -> throw new IOException("File extension " + "'" + extension + "'"  + " not available");
+            default -> throw new IOException("File extension " + "'" + extension + "'"  + " not supported");
         };
     }
 }
