@@ -11,13 +11,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 class DifferTest {
+
     private final String jsonFile1 = "src/test/resources/file1.json";
     private final String jsonFile2 = "src/test/resources/file2.json";
     private final String yamlFile1 = "src/test/resources/file1.yml";
     private final String yamlFile2 = "src/test/resources/file2.yaml";
+
     private static final Path STYLISPATH = Paths.get("src/test/resources/stylish-test.txt");
     private static final Path PLAINPATH = Paths.get("src/test/resources/plain-test.txt");
     private static final Path JSONPATH = Paths.get("src/test/resources/json-test.txt");
+
     private static String stylish;
     private static String plain;
     private static String json;
@@ -30,25 +33,25 @@ class DifferTest {
     }
 
     @Test
-    void generateTest1() throws IOException {
+    void generateTest1() {
         String actual = Differ.generate(jsonFile1, jsonFile2);
         assertEquals(stylish, actual);
     }
 
     @Test
-    void generateTest2() throws IOException {
+    void generateTest2() {
         String actual = Differ.generate(yamlFile1, yamlFile2);
         assertEquals(stylish, actual);
     }
 
     @Test
-    void generateTest3() throws IOException {
+    void generateTest3() {
         String actual = Differ.generate(jsonFile1, jsonFile2, "plain");
         assertEquals(plain, actual);
     }
 
     @Test
-    void generateTest4() throws IOException {
+    void generateTest4() {
         String actual = Differ.generate(jsonFile1, jsonFile2, "json");
         assertEquals(json, actual);
     }

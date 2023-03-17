@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Differ {
-    public static String generate(String filePath1, String filePath2, String format) throws IOException {
+    public static String generate(String filePath1, String filePath2, String format) {
         Map<String, Object> parsingDataFile1 = getData(filePath1);
         Map<String, Object> parsingDataFile2 = getData(filePath2);
 
@@ -17,16 +17,20 @@ public class Differ {
         return Formatter.makeFormat(differences, format);
     }
 
-    public static String generate(String fistFilePath, String secondFilePath) throws IOException {
+    public static String generate(String fistFilePath, String secondFilePath) {
         return generate(fistFilePath, secondFilePath, "stylish");
     }
 
-    public static Map<String, Object> getData(String filePath) throws IOException {
+    public static Map<String, Object> getData(String filePath) {
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
 
-        String dataFile = Files.readString(path);
+        String dataFile;
+        try {
+            dataFile = Files.readString(path);
+        } catch (IOException e) {
+            throw new RuntimeException("\nCheck the correctness of the entered data and repeat the input\n" + e);
+        }
         String extension = getFileExtension(filePath);
-
         return Parser.parse(dataFile, extension);
     }
 
