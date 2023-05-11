@@ -46,3 +46,4 @@ make install
 #### Output example in json format:
 
 ![json](https://user-images.githubusercontent.com/122821639/222505949-f612a42b-5c7d-4f6a-afc7-7ed2206f6bfe.png)
+
