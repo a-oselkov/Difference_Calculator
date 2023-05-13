@@ -33,25 +33,25 @@ class DifferTest {
     }
 
     @Test
-    void generateTest1() {
+    void generateTest1() throws IOException {
         String actual = Differ.generate(jsonFile1, jsonFile2);
         assertEquals(stylish, actual);
     }
 
     @Test
-    void generateTest2() {
+    void generateTest2() throws IOException {
         String actual = Differ.generate(yamlFile1, yamlFile2);
         assertEquals(stylish, actual);
     }
 
     @Test
-    void generateTest3() {
+    void generateTest3() throws IOException {
         String actual = Differ.generate(jsonFile1, jsonFile2, "plain");
         assertEquals(plain, actual);
     }
 
     @Test
-    void generateTest4() {
+    void generateTest4() throws IOException {
         String actual = Differ.generate(jsonFile1, jsonFile2, "json");
         assertEquals(json, actual);
     }

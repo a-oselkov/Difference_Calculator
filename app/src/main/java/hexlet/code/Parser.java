@@ -9,20 +9,17 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.util.Map;
 
 public class Parser {
-    public static Map<String, Object> parse(String dataFromFile, String extension) {
+    public static Map<String, Object> parse(String dataFromFile, String extension) throws JsonProcessingException {
         ObjectMapper mapper = chooseParser(extension);
-        try {
-            return mapper.readValue(dataFromFile, new TypeReference<Map<String, Object>>() { });
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
+        return mapper.readValue(dataFromFile, new TypeReference<Map<String, Object>>() {
+        });
     }
 
     private static ObjectMapper chooseParser(String extension) {
         return switch (extension) {
             case "json" -> new JsonMapper();
             case "yml", "yaml" -> new YAMLMapper();
-            default -> throw new RuntimeException("File extension " + "'" + extension + "'"  + " not supported");
+            default -> throw new RuntimeException("File extension " + "'" + extension + "'" + " not supported");
 
         };
     }
