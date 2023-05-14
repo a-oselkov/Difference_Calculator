@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Plain {
-    public static String valueType(Object value) {
+    private static String valueType(Object value) {
         if (value == null) {
-            return null;
+            return "null";
         }
         if (value instanceof Collection || value instanceof Map) {
             return "[complex value]";
