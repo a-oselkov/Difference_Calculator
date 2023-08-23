@@ -22,7 +22,9 @@ Utility Features:
 make install
 ```
 ### Use
+```sh
 ./build/install/app/bin/app file1 file2
+```
 
 #### When launching the application without parameters, the result of comparing two json text files will be shown.
 
